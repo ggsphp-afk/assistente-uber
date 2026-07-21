@@ -2,7 +2,7 @@ name: Gerar APK Android
 
 on:
   push:
-    branches: [ "main", "master" ]
+    branches: [ "**" ]
   workflow_dispatch:
 
 jobs:
@@ -21,6 +21,9 @@ jobs:
 
       - name: Configurar Gradle
         uses: gradle/actions/setup-gradle@v3
+
+      - name: Dar permissão de execução ao Gradle
+        run: chmod +x gradlew || true
 
       - name: Compilar o APK
         run: gradle assembleDebug
