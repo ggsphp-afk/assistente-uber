@@ -7,6 +7,10 @@ import android.widget.Toast
 import java.util.regex.Pattern
 
 class LeitorUberService : AccessibilityService() {
+override fun onServiceConnected() {
+    super.onServiceConnected()
+    Toast.makeText(this, "🤖 Assistente Uber Ativado com Sucesso!", Toast.LENGTH_LONG).show()
+}
 
     override fun onAccessibilityEvent(event: AccessibilityEvent?) {
         val rootNode = rootInActiveWindow ?: return
